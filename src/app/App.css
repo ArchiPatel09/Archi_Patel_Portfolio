@@ -1,0 +1,18 @@
+.App {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.main-content {
+  padding-top: 80px; /* Account for fixed navbar */
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout > main {
+  flex: 1;
+}
