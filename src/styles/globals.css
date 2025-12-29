@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import './light-mode.css';
 
 :root {
   /* Color System */
@@ -15,6 +16,13 @@
   --accent-dataarena: #00d1ff;
   --accent-creativestudio: #c77dff;
   --accent-founderscut: #f5c77a;
+  
+  /* RGB values for accent colors (needed for rgba) */
+  --accent-uiflix-rgb: 229, 9, 20;
+  --accent-serveprime-rgb: 31, 111, 235;
+  --accent-dataarena-rgb: 0, 209, 255;
+  --accent-creativestudio-rgb: 199, 125, 255;
+  --accent-founderscut-rgb: 245, 199, 122;
   
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -38,6 +46,67 @@
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 350ms ease;
+}
+
+/* Light Mode Variables */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  
+  /* Keep RGB values for light mode */
+  --accent-uiflix-rgb: 229, 9, 20;
+  --accent-serveprime-rgb: 31, 111, 235;
+  --accent-dataarena-rgb: 0, 209, 255;
+  --accent-creativestudio-rgb: 199, 125, 255;
+  --accent-founderscut-rgb: 245, 199, 122;
+}
+
+/* Smooth theme transition */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode specific improvements */
+[data-theme="light"] {
+  /* Body background */
+  background-color: var(--bg-primary);
+  
+  /* Better text contrast */
+  color: var(--text-primary);
+}
+
+/* Theme-specific adjustments */
+[data-theme="light"] .project-card {
+  border: 1px solid #dee2e6;
+}
+
+[data-theme="light"] .channel-card {
+  border: 1px solid #dee2e6;
+}
+
+[data-theme="light"] .skill-card {
+  border: 1px solid #dee2e6;
+}
+
+[data-theme="light"] .btn-secondary {
+  border-color: #ced4da;
+}
+
+[data-theme="light"] .nav-link {
+  color: #495057;
+}
+
+[data-theme="light"] .nav-link:hover {
+  color: #212529;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .footer {
+  border-top: 1px solid #dee2e6;
 }
 
 * {
@@ -134,4 +203,21 @@ p {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-secondary);
+}
+
+/* Debug classes */
+body.light-mode {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body.dark-mode {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Force light mode debugging */
+[data-theme="light"] body {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
 }

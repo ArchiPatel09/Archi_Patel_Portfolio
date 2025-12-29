@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X, Code2 } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext'; // Add this import
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  
+  // Use the theme context
+  const { theme, toggleTheme } = useTheme(); // Get theme and toggle function
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -31,15 +35,6 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
-  const getAccentColor = (path) => {
-    if (path === '/uiflix') return '#e50914';
-    if (path === '/serve-prime') return '#1f6feb';
-    if (path === '/data-arena') return '#00d1ff';
-    if (path === '/creative-studio') return '#c77dff';
-    if (path === '/founders-cut') return '#f5c77a';
-    return '#e6e8ee';
-  };
-
   return (
     <motion.nav
       className={`navbar ${scrolled ? 'scrolled' : ''}`}
@@ -61,13 +56,26 @@ const Navbar = () => {
                 key={item.path}
                 to={item.path}
                 className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                style={{
-                  '--accent-color': getAccentColor(item.path),
-                }}
               >
                 {item.name}
               </Link>
             ))}
+            
+            {/* Updated Theme Toggle Button */}
+            <button 
+              onClick={toggleTheme} // Use toggleTheme from context
+              className="theme-toggle-btn"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            >
+              <span className="theme-toggle-content">
+                <span className="theme-toggle-icon">
+                  {theme === 'light' ? '🌙' : '☀️'}
+                </span>
+                <span className="theme-toggle-text">
+                  {theme === 'light' ? 'Dark' : 'Light'}
+                </span>
+              </span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,13 +101,28 @@ const Navbar = () => {
                 key={item.path}
                 to={item.path}
                 className={`mobile-nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                style={{
-                  '--accent-color': getAccentColor(item.path),
-                }}
               >
                 {item.name}
               </Link>
             ))}
+            
+            {/* Mobile Theme Toggle */}
+            <div className="mobile-theme-toggle">
+              <button 
+                onClick={toggleTheme}
+                className="theme-toggle-btn"
+                aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              >
+                <span className="theme-toggle-content">
+                  <span className="theme-toggle-icon">
+                    {theme === 'light' ? '🌙' : '☀️'}
+                  </span>
+                  <span className="theme-toggle-text">
+                    {theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+                  </span>
+                </span>
+              </button>
+            </div>
           </motion.div>
         )}
       </div>

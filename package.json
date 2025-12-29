@@ -9,6 +9,9 @@
     "framer-motion": "^10.16.5",
     "lucide-react": "^0.309.0"
   },
+  "peerDependencies": {
+    "@types/react": "^18.0.0"
+  },
   "devDependencies": {
     "react-scripts": "5.0.1"
   },

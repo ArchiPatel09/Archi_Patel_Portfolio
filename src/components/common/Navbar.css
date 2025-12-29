@@ -143,3 +143,148 @@
     font-size: 1rem;
   }
 }
+
+/* Add to existing Navbar.css */
+
+/* Theme toggle in desktop nav */
+.desktop-nav {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+/* Theme toggle in mobile menu */
+.mobile-theme-toggle {
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+}
+
+/* Light mode adjustments for navbar */
+[data-theme="light"] .navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .logo {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .mobile-nav {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .mobile-nav-link {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .mobile-nav-link:hover,
+[data-theme="light"] .mobile-nav-link.active {
+  background: rgba(0, 0, 0, 0.05);
+} 
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-tertiary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(0);
+}
+
+.theme-toggle-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover .theme-toggle-icon {
+  transform: rotate(15deg);
+}
+
+.theme-toggle-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Light mode styles for theme button */
+[data-theme="light"] .theme-toggle-btn {
+  background: var(--bg-tertiary);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+  background: var(--bg-secondary);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+}
+
+/* Mobile theme toggle */
+.mobile-theme-toggle {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-theme-toggle .theme-toggle-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .theme-toggle-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .theme-toggle-text {
+    display: none;
+  }
+  
+  .theme-toggle-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+  }
+  
+  .theme-toggle-content {
+    gap: 0;
+  }
+}

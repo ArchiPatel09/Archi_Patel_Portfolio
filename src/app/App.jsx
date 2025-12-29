@@ -8,6 +8,7 @@ import DataArena from '../pages/DataArena/DataArena';
 import CreativeStudio from '../pages/CreativeStudio/CreativeStudio';
 import FoundersCut from '../pages/FoundersCut/FoundersCut';
 import './App.css'; // This file exists now
+import { ThemeProvider } from '../context/ThemeContext';
 
 function App() {
   return (

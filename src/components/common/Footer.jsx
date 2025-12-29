@@ -32,9 +32,9 @@ const Footer = () => {
 
             <div className="link-group">
               <h4 className="link-group-title">Connect</h4>
-              <a href="mailto:archi@example.com" className="footer-link">Email</a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-link">LinkedIn</a>
+              <a href="mailto:archipatel239@gmail.com" className="footer-link">Email</a>
+              <a href="https://github.com/ArchiPatel09" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
+              <a href="https://www.linkedin.com/in/archi-patel09/" target="_blank" rel="noopener noreferrer" className="footer-link">LinkedIn</a>
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="footer-link">Resume</a>
             </div>
           </div>

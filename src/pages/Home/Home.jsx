@@ -54,20 +54,35 @@ const Home = () => {
       <section className="hero section">
         <div className="container">
           <motion.div
-            className="hero-content"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="hero-title">
-              ARCHI <span className="gradient-text">PATEL</span>
-            </h1>
-            <h2 className="hero-subtitle">
-              Frontend / Full-Stack Developer
-            </h2>
-            <p className="hero-description">
-              Building scalable, cinematic web experiences with modern technologies
-            </p>
+  className="hero-content"
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+>
+  {/* Add your photo above the name */}
+  <motion.div
+    className="profile-image-container"
+    initial={{ scale: 0, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    transition={{ delay: 0.2, duration: 0.5 }}
+  >
+    <img
+      src={require('../../assets/profile.jpg')} // Change path to your photo
+      alt="Archi Patel"
+      className="profile-image"
+    />
+    <div className="profile-image-glow"></div>
+  </motion.div>
+  
+  <h1 className="hero-title">
+    ARCHI <span className="gradient-text">PATEL</span>
+  </h1>
+  <h2 className="hero-subtitle">
+    Frontend / Full-Stack Developer
+  </h2>
+  <p className="hero-description">
+    Building scalable, cinematic web experiences with modern technologies
+  </p>
             <div className="hero-actions">
               <Button
                 variant="primary"
@@ -247,14 +262,14 @@ const Home = () => {
                 variant="primary"
                 size="large"
                 accentColor="#e50914"
-                onClick={() => window.location.href = 'mailto:archi@example.com'}
+                onClick={() => window.location.href = 'mailto:archipatel239@gmail.com'}
               >
                 <Mail size={20} />
                 Contact Me
               </Button>
               <div className="social-links">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/ArchiPatel099"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link"
@@ -263,7 +278,7 @@ const Home = () => {
                   <Github size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/archi-patel09/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link"
